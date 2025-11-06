@@ -8,6 +8,14 @@ const images = [flykar, kena, witcher];
 
 const BannerSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,40 +24,47 @@ const BannerSlider = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const getPosition = (index) => {
-    if (index === currentIndex) return "center";
-    if (index === (currentIndex + 1) % images.length) return "right";
-    if (index === (currentIndex + 2) % images.length) return "left";
-    return "hidden";
-  };
-
   return (
-    <div className="relative w-screen overflow-hidden">
-      {/* 🔹 Image Slider */}
-      <div className="relative flex justify-center items-center w-screen h-[450px] md:h-[500px] z-10">
+    <div className="relative w-full overflow-hidden">
+      {/* Banner Section */}
+      <div
+        className={`relative flex justify-center items-center w-full ${isMobile ? "h-[70vh]" : "h-[550px]"
+          } overflow-hidden`}
+      >
         {images.map((img, index) => {
-          const position = getPosition(index);
-          let scale = 0.8;
-          let opacity = 0.4;
-          let zIndex = 5;
-          let x = 0;
-
-          // Set positions with proper gaps
-          if (position === "center") {
-            scale = 1.15;
-            opacity = 1;
-            zIndex = 20;
+          let scale = 0.8,
+            opacity = 0.4,
+            zIndex = 5,
             x = 0;
-          } else if (position === "left") {
-            scale = 0.85;
-            opacity = 0.6;
-            zIndex = 10;
-            x = -400; // bigger gap from center
-          } else if (position === "right") {
-            scale = 0.85;
-            opacity = 0.6;
-            zIndex = 10;
-            x = 400; // bigger gap from center
+
+          if (isMobile) {
+            if (index === currentIndex) {
+              scale = 1;
+              opacity = 1;
+              zIndex = 20;
+              x = 0;
+            } else {
+              opacity = 0;
+            }
+          } else {
+            if (index === currentIndex) {
+              scale = 1.15;
+              opacity = 1;
+              zIndex = 20;
+              x = 0;
+            } else if (index === (currentIndex + 1) % images.length) {
+              scale = 0.85;
+              opacity = 0.6;
+              zIndex = 10;
+              x = 502;
+            } else if (index === (currentIndex + 2) % images.length) {
+              scale = 0.85;
+              opacity = 0.6;
+              zIndex = 10;
+              x = -502;
+            } else {
+              opacity = 0;
+            }
           }
 
           return (
@@ -57,13 +72,16 @@ const BannerSlider = () => {
               key={index}
               animate={{ scale, opacity, x }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute rounded-2xl overflow-hidden shadow-[0_0_35px_rgba(0,0,0,0.6)]"
+              className="absolute rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(0,0,0,0.4)] flex justify-center items-center"
               style={{ zIndex }}
             >
               <img
                 src={img}
                 alt={`Slide ${index}`}
-                className="w-[300px] h-[420px] md:w-[380px] md:h-[500px] object-cover rounded-2xl"
+                className={`object-cover rounded-2xl ${isMobile
+                    ? "w-[90vw] h-auto max-h-[65vh]"
+                    : "w-[430px] h-[520px] md:w-[480px] md:h-[550px]"
+                  }`}
               />
             </motion.div>
           );

@@ -21,9 +21,14 @@ const Home = () => {
 
       {/* Popular Games Section */}
       <section>
-        <h2 className="text-3xl font-bold text-yellow-400 mb-6 text-center">
-          🎮 Popular Games
+        {/* Heading with gradient */}
+        <h2 className="text-5xl font-bold mt-12 mb-6 text-center">
+          🎮{" "}
+          <span className="bg-gradient-to-r from-white to-red-600 bg-clip-text text-transparent">
+            Popular Games
+          </span>
         </h2>
+
         {popularGames.length === 0 ? (
           <p className="text-center text-white">Loading popular games...</p>
         ) : (
