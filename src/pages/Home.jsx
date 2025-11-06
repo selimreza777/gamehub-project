@@ -62,6 +62,35 @@ const Home = () => {
           </div>
         )}
       </section>
+
+      {/* Newsletter Section */}
+      <section className="py-12 px-4 sm:px-6 md:px-8 mx-auto max-w-3xl mt-12 text-center">
+        <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+          Join Our Gaming Newsletter
+        </h3>
+        <p className="text-gray-300 text-lg sm:text-xl mb-6">
+          Get exclusive updates, early access to new games & special deals straight to your inbox.
+        </p>
+
+
+        <form className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            required
+            className="w-full sm:flex-1 px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500 shadow-md focus:outline-yellow-400 focus:shadow-yellow-300 transition-all duration-300"
+          />
+          <button
+            type="submit"
+            className="w-full sm:w-auto px-6 py-3 bg-yellow-500 hover:bg-yellow-400 font-semibold rounded-lg transition-colors duration-300"
+          >
+            Subscribe
+          </button>
+        </form>
+
+
+      </section>
+
     </div>
   );
 };

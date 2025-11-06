@@ -14,7 +14,7 @@ const Footer = () => {
             alt="Gamehub Logo"
             className="w-16 sm:w-20 md:w-24 h-auto animate-pulse"
           />
-          <span className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wide text-yellow-400 drop-shadow-lg">
+          <span className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wide text-white drop-shadow-lg">
             Gamehub
           </span>
         </div>
