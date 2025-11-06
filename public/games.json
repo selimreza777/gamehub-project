@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Player Unknowns Battle Ground: PUBG",
-    "coverPhoto": "/images/pubg.png",
+    "coverPhoto": "/src/assets/pubg.png",
     "genre": "FPS",
     "rating": 4.5,
     "developer": "Krafton",
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "title": "Kena: Spirit Keeper",
-    "coverPhoto": "/images/kena.png",
+    "coverPhoto": "/src/assets/terminator-girl.jpg",
     "genre": "Adventure",
     "rating": 4.7,
     "developer": "Ember Labs",
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "title": "The Witcher",
-    "coverPhoto": "/images/witcher.png",
+    "coverPhoto": "/src/assets/witcher-1.png",
     "genre": "Action RPG",
     "rating": 4.9,
     "developer": "CD Projekt Red",

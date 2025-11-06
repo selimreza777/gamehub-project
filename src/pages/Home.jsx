@@ -22,7 +22,7 @@ const Home = () => {
       {/* Popular Games Section */}
       <section>
         {/* Heading with gradient */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-12 mb-10 text-center transition-all duration-300">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mt-12 mb-8 sm:mb-10 text-center transition-all duration-300">
           🎮{" "}
           <span className="bg-gradient-to-r from-white to-red-600 bg-clip-text text-transparent">
             Popular Games
@@ -30,28 +30,33 @@ const Home = () => {
         </h2>
 
         {popularGames.length === 0 ? (
-          <p className="text-center text-white text-base sm:text-lg">Loading popular games...</p>
+          <p className="text-center text-white text-sm sm:text-base md:text-lg">Loading popular games...</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
             {popularGames.map((game) => (
               <div
                 key={game.id}
-                className="bg-slate-800 p-3 sm:p-4 rounded-xl shadow-lg hover:scale-105 transition duration-300"
+                className="relative rounded-xl overflow-hidden shadow-lg sm:shadow-2xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,0,0.5)] transition-transform duration-300"
               >
+                {/* Image */}
                 <img
                   src={game.coverPhoto}
                   alt={game.title}
-                  className="w-full h-40 sm:h-48 md:h-56 object-cover rounded-lg mb-3"
+                  className="w-full h-48 sm:h-56 md:h-72 object-cover brightness-90 hover:brightness-100 transition-all duration-300"
                 />
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">
-                  {game.title}
-                </h3>
-                <p className="text-gray-300 text-sm sm:text-base mb-1 sm:mb-2">
-                  {game.genre}
-                </p>
-                <p className="text-yellow-400 font-medium text-sm sm:text-base">
-                  ⭐ {game.rating}
-                </p>
+
+                {/* Overlay for title, genre, rating */}
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2 sm:p-3 md:p-4">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
+                    {game.title}
+                  </h3>
+                  <p className="text-gray-300 text-xs sm:text-sm md:text-base italic drop-shadow-md">
+                    {game.genre}
+                  </p>
+                  <p className="text-yellow-400 font-semibold text-xs sm:text-sm md:text-base animate-pulse">
+                    ⭐ {game.rating}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
