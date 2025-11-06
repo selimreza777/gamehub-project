@@ -1,20 +1,32 @@
 [
   {
-    "id": "1",
-    "title": "PUBG Mobile",
-    "coverPhoto": "pubg.png",
-    "category": "FPS",
-    "downloadLink": "https://www.pubgmobile.com/en-US/home.shtml",
-    "ratings": "4.5",
-    "developer": "Krafton"
+    "id": 1,
+    "title": "Player Unknowns Battle Ground: PUBG",
+    "coverPhoto": "/images/pubg.png",
+    "genre": "FPS",
+    "rating": 4.5,
+    "developer": "Krafton",
+    "description": "PUBG Mobile is a fast-paced battle royale game where players fight for survival, strategy, and victory on dynamic maps.",
+    "downloadLink": "https://www.pubgmobile.com/en-US/home.shtml"
   },
   {
-    "id": "2",
-    "title": "Fortnite",
-    "coverPhoto": "fortnite.png",
-    "category": "Battle Royale",
-    "downloadLink": "https://www.epicgames.com/fortnite/en-US/home",
-    "ratings": "4.6",
-    "developer": "Epic Games"
+    "id": 2,
+    "title": "Kena: Spirit Keeper",
+    "coverPhoto": "/images/kena.png",
+    "genre": "Adventure",
+    "rating": 4.7,
+    "developer": "Ember Labs",
+    "description": "Kena: Spirit Keeper is an emotional adventure that explores the balance between nature and spirit.",
+    "downloadLink": "https://www.playstation.com/en-us/games/kena-bridge-of-spirits/"
+  },
+  {
+    "id": 3,
+    "title": "The Witcher",
+    "coverPhoto": "/images/witcher.png",
+    "genre": "Action RPG",
+    "rating": 4.9,
+    "developer": "CD Projekt Red",
+    "description": "A dark fantasy RPG where choices matter and monsters roam the continent.",
+    "downloadLink": "https://thewitcher.com/en/witcher3"
   }
 ]
