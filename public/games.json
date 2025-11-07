@@ -28,5 +28,75 @@
     "developer": "CD Projekt Red",
     "description": "A dark fantasy RPG where choices matter and monsters roam the continent.",
     "downloadLink": "https://thewitcher.com/en/witcher3"
+  },
+  {
+    "id": 4,
+    "title": "Valorant",
+    "coverPhoto": "/src/assets/valorant.png",
+    "genre": "Tactical Shooter",
+    "rating": 4.6,
+    "developer": "Riot Games",
+    "description": "Valorant blends precise gunplay with unique agent abilities in a fast-paced tactical shooter setting.",
+    "downloadLink": "https://playvalorant.com/"
+  },
+  {
+    "id": 5,
+    "title": "God of War: Ragnarok",
+    "coverPhoto": "/src/assets/godofwar.png",
+    "genre": "Action Adventure",
+    "rating": 4.9,
+    "developer": "Santa Monica Studio",
+    "description": "Kratos and Atreus embark on an epic journey through Norse realms as Ragnarok looms closer.",
+    "downloadLink": "https://www.playstation.com/en-us/games/god-of-war-ragnarok/"
+  },
+  {
+    "id": 6,
+    "title": "Cyberpunk 2077",
+    "coverPhoto": "/src/assets/cyberpunk.png",
+    "genre": "Open World RPG",
+    "rating": 4.3,
+    "developer": "CD Projekt Red",
+    "description": "Explore the neon-lit streets of Night City as a cyber-enhanced mercenary seeking immortality.",
+    "downloadLink": "https://www.cyberpunk.net/"
+  },
+  {
+    "id": 7,
+    "title": "Minecraft",
+    "coverPhoto": "/src/assets/minecraft.png",
+    "genre": "Sandbox Survival",
+    "rating": 4.8,
+    "developer": "Mojang Studios",
+    "description": "Build, explore, and survive in an infinite world of creativity and adventure.",
+    "downloadLink": "https://www.minecraft.net/"
+  },
+  {
+    "id": 8,
+    "title": "Assassin’s Creed Valhalla",
+    "coverPhoto": "/src/assets/valhalla.png",
+    "genre": "Action RPG",
+    "rating": 4.4,
+    "developer": "Ubisoft",
+    "description": "Live the saga of Eivor, a legendary Viking raider on a quest for glory and conquest.",
+    "downloadLink": "https://www.ubisoft.com/game/assassins-creed/valhalla"
+  },
+  {
+    "id": 9,
+    "title": "Elden Ring",
+    "coverPhoto": "/src/assets/eldenring.png",
+    "genre": "Fantasy RPG",
+    "rating": 4.9,
+    "developer": "FromSoftware",
+    "description": "A vast fantasy world full of mystery, powerful bosses, and hidden secrets awaits the Tarnished.",
+    "downloadLink": "https://en.bandainamcoent.eu/elden-ring/elden-ring"
+  },
+  {
+    "id": 10,
+    "title": "Call of Duty: Warzone",
+    "coverPhoto": "/src/assets/warzone.png",
+    "genre": "Battle Royale",
+    "rating": 4.6,
+    "developer": "Infinity Ward",
+    "description": "Experience high-octane battle royale combat with cutting-edge graphics and intense team gameplay.",
+    "downloadLink": "https://www.callofduty.com/warzone"
   }
 ]
