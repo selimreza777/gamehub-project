@@ -12,7 +12,7 @@
   {
     "id": 2,
     "title": "Kena: Spirit Keeper",
-    "coverPhoto": "/src/assets/terminator-girl.jpg",
+    "coverPhoto": "/src/assets/kena-1.png",
     "genre": "Adventure",
     "rating": 4.7,
     "developer": "Ember Labs",
@@ -98,5 +98,25 @@
     "developer": "Infinity Ward",
     "description": "Experience high-octane battle royale combat with cutting-edge graphics and intense team gameplay.",
     "downloadLink": "https://www.callofduty.com/warzone"
+  },
+  {
+    "id": 11,
+    "title": "FIFA 24",
+    "coverPhoto": "/src/assets/fifa24.png",
+    "genre": "Sports",
+    "rating": 4.5,
+    "developer": "EA Sports",
+    "description": "Experience the most realistic football simulation with FIFA 24, featuring updated teams, leagues, and gameplay mechanics.",
+    "downloadLink": "https://www.ea.com/games/fifa/fifa-24"
+  },
+  {
+    "id": 12,
+    "title": "Grand Theft Auto V",
+    "coverPhoto": "/src/assets/gta5.png",
+    "genre": "Action Adventure",
+    "rating": 4.8,
+    "developer": "Rockstar Games",
+    "description": "Explore the sprawling open world of Los Santos in GTA V, filled with thrilling missions, heists, and adventures.",
+    "downloadLink": "https://www.rockstargames.com/V/"
   }
 ]

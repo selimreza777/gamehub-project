@@ -1,58 +1,69 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import GameCard from "../components/GameCard.jsx";
+import gamesData from "../data/games.json";
 
 const GameDetails = () => {
   const { id } = useParams();
-  const [game, setGame] = useState(null);
+  const navigate = useNavigate();
+  const [selectedGame, setSelectedGame] = useState(null);
 
   useEffect(() => {
-    fetch("/games.json")
-      .then(res => res.json())
-      .then(data => {
-        const found = data.find(g => g.id === parseInt(id));
-        setGame(found || null);
-      })
-      .catch(err => console.error(err));
-  }, [id]);
+    const found = gamesData.find((g) => g.id === parseInt(id));
+    setSelectedGame(found || null);
 
-  if (!game) {
-    return <p className="text-white text-center mt-10">Loading game details...</p>;
+    // Smooth scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]); // dependency = id → jodi same page e id change hoy, useEffect run hobe
+
+  if (!selectedGame) {
+    return <div className="text-center text-white mt-20">Game not found!</div>;
   }
 
+  const availableGames = gamesData.filter((g) => g.id !== selectedGame.id);
+
+  const handleAvailableClick = (game) => {
+    // Navigate to same page with new id
+    navigate(`/games/${game.id}`);
+  };
+
   return (
-    <div className="container mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold text-yellow-400 mb-6">{game.title}</h1>
-
-      <div className="flex flex-col md:flex-row gap-6">
-        {/* Cover Photo */}
+    <div className="container mx-auto px-4 py-6 space-y-6">
+      {/* Selected Game */}
+      <div className="flex flex-col md:flex-row gap-6 mb-10">
         <img
-          src={game.coverPhoto}
-          alt={game.title}
-          className="w-full md:w-1/3 h-auto rounded-lg shadow-lg"
+          src={selectedGame.coverPhoto}
+          alt={selectedGame.title}
+          className="w-full md:w-1/3 rounded-2xl shadow-2xl"
         />
-
-        {/* Game Info */}
-        <div className="text-white md:flex-1 space-y-4">
-          <p><span className="font-bold">Genre:</span> {game.genre}</p>
-          <p><span className="font-bold">Rating:</span> ⭐ {game.rating}</p>
-          <p><span className="font-bold">Developer:</span> {game.developer}</p>
-          <p className="mt-4">{game.description}</p>
-
+        <div className="flex-1 text-white space-y-4">
+          <h1 className="text-5xl font-bold">{selectedGame.title}</h1>
+          <p className="text-gray-300 italic">{selectedGame.genre}</p>
+          <p className="text-yellow-400 font-bold">⭐ {selectedGame.rating}</p>
+          <p className="text-gray-200">{selectedGame.description}</p>
+          <p className="text-gray-400">Developer: {selectedGame.developer}</p>
           <a
-            href={game.downloadLink}
+            href={selectedGame.downloadLink}
             target="_blank"
-            className="inline-block mt-6 px-6 py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold rounded-lg transition-colors duration-300"
+            className="inline-block mt-2 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-500 transition-colors"
           >
-            Download Now
+            Download
           </a>
-
-          <Link
-            to="/games"
-            className="inline-block mt-2 text-gray-300 underline hover:text-yellow-400"
-          >
-            ← Back to Games
-          </Link>
         </div>
+      </div>
+
+      {/* Available Games */}
+      <h2 className="text-5xl font-bold text-yellow-400 mb-6 text-center">Available Games</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {availableGames.map((game) => (
+          <div
+            key={game.id}
+            onClick={() => handleAvailableClick(game)}
+            className="cursor-pointer"
+          >
+            <GameCard game={game} />
+          </div>
+        ))}
       </div>
     </div>
   );

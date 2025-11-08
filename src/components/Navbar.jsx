@@ -12,29 +12,35 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.error("Logout failed:", error);
+    }
+  };
+
+  const handleGamesClick = () => {
+    if (user) {
+      navigate("/games"); // login thakle AllGames page
+    } else {
+      navigate("/login"); // login na thakle Login page
     }
   };
 
   return (
     <header className="bg-slate-900 text-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center py-3 px-6">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/home" className="flex items-center gap-2">
           <img src={logo} alt="Gamehub Logo" className="w-10 h-10 object-contain" />
           <span className="text-2xl font-bold hover:text-yellow-400">Gamehub</span>
         </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="hover:text-yellow-400 transition">Home</Link>
-          <Link to="/games/1" className="hover:text-yellow-400 transition">Games</Link>
-          
-          {user ? (
-            <Link to="/myprofile" className="hover:text-yellow-400 transition">My Profile</Link>
-          ) : null}
-
+          <Link to="/home" className="hover:text-yellow-400 transition">Home</Link>
+          <button onClick={handleGamesClick} className="hover:text-yellow-400 transition">
+            Games
+          </button>
+          {user && <Link to="/myprofile" className="hover:text-yellow-400 transition">My Profile</Link>}
           {!user ? (
             <>
               <Link to="/login" className="px-4 py-2 border border-yellow-500 rounded hover:bg-yellow-500 hover:text-black transition">Login</Link>
@@ -54,13 +60,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-slate-800 text-white px-6 py-4 space-y-3">
-          <Link to="/" className="block hover:text-yellow-400 transition">Home</Link>
-          <Link to="/games/1" className="block hover:text-yellow-400 transition">Games</Link>
-
-          {user ? (
-            <Link to="/myprofile" className="block hover:text-yellow-400 transition">My Profile</Link>
-          ) : null}
-
+          <Link to="/home" className="block hover:text-yellow-400 transition">Home</Link>
+          <button onClick={handleGamesClick} className="block hover:text-yellow-400 transition">Games</button>
+          {user && <Link to="/myprofile" className="block hover:text-yellow-400 transition">My Profile</Link>}
           {!user ? (
             <>
               <Link to="/login" className="block border border-yellow-500 rounded px-4 py-2 hover:bg-yellow-500 hover:text-black transition">Login</Link>
