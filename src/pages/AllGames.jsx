@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import GameCard from "../components/GameCard.jsx";
+import NotFound from "./NotFound.jsx"; // NotFound component
 
 const AllGames = () => {
   const [games, setGames] = useState([]);
@@ -8,9 +9,9 @@ const AllGames = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Selected game state
   const [selectedGame, setSelectedGame] = useState(location.state?.selectedGame || null);
 
+  // Load games JSON
   useEffect(() => {
     fetch("/games.json")
       .then(res => res.json())
@@ -22,9 +23,16 @@ const AllGames = () => {
   useEffect(() => {
     if (id && games.length > 0) {
       const found = games.find(g => g.id === parseInt(id));
-      setSelectedGame(found || null);
+      if (!found) {
+        // Invalid ID → redirect to /notfound
+        navigate("/notfound", { replace: true });
+      } else {
+        setSelectedGame(found);
+      }
+    } else {
+      setSelectedGame(null);
     }
-  }, [id, games]);
+  }, [id, games, navigate]);
 
   const handleSelectGame = (game) => {
     navigate(`/games/${game.id}`, { state: { selectedGame: game } });

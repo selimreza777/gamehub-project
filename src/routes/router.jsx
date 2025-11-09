@@ -1,4 +1,3 @@
-
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App.jsx";
@@ -15,10 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFound />,
+    errorElement: <NotFound />, // unknown route
     children: [
       { path: "/", element: <Home /> },
-      { path: "/home", element: <Home /> }, // optional /home route
+      { path: "/home", element: <Home /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/forgot-password", element: <ForgotPassword /> },
@@ -33,13 +32,15 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/games/:id?", // optional parameter :id
+        path: "/games/:id?",
         element: (
           <PrivateRoute>
             <AllGames />
           </PrivateRoute>
         ),
       },
+
+      { path: "/notfound", element: <NotFound /> }, // for invalid game ID
     ],
   },
 ]);
