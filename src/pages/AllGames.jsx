@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import GameCard from "../components/GameCard.jsx";
-import NotFound from "./NotFound.jsx"; // NotFound component
+import NotFound from "./NotFound.jsx";
 
 const AllGames = () => {
   const [games, setGames] = useState([]);
@@ -11,7 +11,6 @@ const AllGames = () => {
 
   const [selectedGame, setSelectedGame] = useState(location.state?.selectedGame || null);
 
-  // Load games JSON
   useEffect(() => {
     fetch("/games.json")
       .then(res => res.json())
@@ -19,12 +18,10 @@ const AllGames = () => {
       .catch(err => console.error(err));
   }, []);
 
-  // Update selectedGame when URL changes
   useEffect(() => {
     if (id && games.length > 0) {
       const found = games.find(g => g.id === parseInt(id));
       if (!found) {
-        // Invalid ID → redirect to /notfound
         navigate("/notfound", { replace: true });
       } else {
         setSelectedGame(found);
@@ -49,18 +46,18 @@ const AllGames = () => {
           <img
             src={selectedGame.coverPhoto}
             alt={selectedGame.title}
-            className="w-full md:w-1/3 rounded-2xl shadow-2xl"
+            className="w-full md:w-1/3 rounded-2xl shadow-2xl object-cover"
           />
-          <div className="flex-1 text-white space-y-4">
-            <h1 className="text-5xl font-bold">{selectedGame.title}</h1>
-            <p className="text-gray-300 italic">{selectedGame.genre}</p>
-            <p className="text-yellow-400 font-bold">⭐ {selectedGame.rating}</p>
-            <p className="text-gray-200">{selectedGame.description}</p>
-            <p className="text-gray-400">Developer: {selectedGame.developer}</p>
+          <div className="flex-1 text-white space-y-3 sm:space-y-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">{selectedGame.title}</h1>
+            <p className="text-gray-300 italic text-xs sm:text-sm md:text-base">{selectedGame.genre}</p>
+            <p className="text-yellow-400 font-bold text-xs sm:text-sm md:text-base">⭐ {selectedGame.rating}</p>
+            <p className="text-gray-200 text-xs sm:text-sm md:text-base">{selectedGame.description}</p>
+            <p className="text-gray-400 text-xs sm:text-sm md:text-base">Developer: {selectedGame.developer}</p>
             <a
               href={selectedGame.downloadLink}
               target="_blank"
-              className="inline-block mt-2 px-4 py-2 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-500 transition-colors"
+              className="inline-block mt-2 px-3 sm:px-4 md:px-5 py-2 sm:py-3 md:py-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-500 transition-colors text-xs sm:text-sm md:text-base"
             >
               Download
             </a>
@@ -68,15 +65,24 @@ const AllGames = () => {
         </div>
       )}
 
-      <h1 className="text-5xl font-bold text-yellow-400 mb-6 text-center">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-400 mb-6 text-center">
         Available Games
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {availableGames.map(game => (
-          <div key={game.id} onClick={() => handleSelectGame(game)}>
-            <GameCard game={game} />
-          </div>
-        ))}
+
+      {/* Mobile swipe container */}
+      <div className="overflow-x-auto md:overflow-x-hidden">
+        <div className="flex md:grid md:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-6">
+          {availableGames.map(game => (
+            <div
+              key={game.id}
+              onClick={() => handleSelectGame(game)}
+              className="cursor-pointer flex-shrink-0 md:flex-shrink md:transform hover:scale-105 transition-transform duration-300"
+              style={{ minWidth: '250px' }} // mobile swipe width
+            >
+              <GameCard game={game} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

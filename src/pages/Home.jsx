@@ -35,7 +35,7 @@ const Home = () => {
 
       {/* Popular Games */}
       <section className="pt-16">
-        <h2 className="text-5xl font-bold text-center mb-10">🎮 Popular Games</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10">🎮 Popular Games</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {popularGames.map((game) => (
             <div
@@ -51,8 +51,8 @@ const Home = () => {
 
       {/* Newsletter Section */}
       <section className="bg-slate-900 rounded-2xl p-10 py-20 text-center text-white space-y-6 mt-16 mb-16">
-        <h2 className="text-4xl font-bold">Subscribe to our Newsletter</h2>
-        <p className="text-gray-300 text-lg">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Subscribe to our Newsletter</h2>
+        <p className="text-gray-300 text-base sm:text-lg">
           Get exclusive updates, early access to new games & special deals straight to your inbox.
         </p>
         <form className="flex flex-col sm:flex-row justify-center items-center gap-4">
