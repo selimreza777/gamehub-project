@@ -18,7 +18,7 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       console.error(err);
-      setError("Email/Password login failed. Try again.");
+      setError("Invalid email or password. Try again.");
     }
   };
 
@@ -33,52 +33,55 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold text-yellow-400 mb-6">Login</h1>
-      <form onSubmit={handleEmailLogin} className="space-y-4">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-slate-800 text-white"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-slate-800 text-white"
-          required
-        />
+    <div className="flex justify-center items-center min-h-[80vh] bg-slate-900 text-white">
+      <div className="bg-slate-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h1 className="text-3xl font-bold text-yellow-400 text-center mb-6">Welcome Back</h1>
+
+        <form onSubmit={handleEmailLogin} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-4 py-2 rounded bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Your Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-4 py-2 rounded bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-400 transition"
+          >
+            Login
+          </button>
+        </form>
+
         <button
-          type="submit"
-          className="px-6 py-2 bg-yellow-500 text-black rounded hover:bg-yellow-400 transition"
+          onClick={handleGoogleLogin}
+          className="mt-4 w-full py-2 bg-yellow-500 text-black rounded font-semibold hover:bg-yellow-400 transition"
         >
-          Login
+          Continue with Google
         </button>
-      </form>
 
-      <button
-        onClick={handleGoogleLogin}
-        className="mt-4 px-6 py-2 bg-yellow-500 text-black rounded hover:bg-yellow-400 transition"
-      >
-        Login with Google
-      </button>
+        {error && <p className="text-red-500 mt-3 text-center">{error}</p>}
 
-      {error && <p className="text-red-500 mt-3">{error}</p>}
-
-      <p className="mt-4 text-white">
-        Don't have an account?{" "}
-        <Link to="/register" className="text-yellow-400 underline">
-          Register
-        </Link>{" "}
-        |{" "}
-        <Link to="/forgot-password" className="text-yellow-400 underline">
-          Forgot Password?
-        </Link>
-      </p>
+        <p className="mt-6 text-center text-gray-300">
+          Don't have an account?{" "}
+          <Link to="/register" className="text-yellow-400 underline hover:text-yellow-300">
+            Register
+          </Link>{" "}
+          |{" "}
+          <Link to="/forgot-password" className="text-yellow-400 underline hover:text-yellow-300">
+            Forgot Password?
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

@@ -2,16 +2,18 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-white">
+    <>
+      <ScrollToTop />
       <Navbar />
-      <main className="grow container mx-auto px-4 py-6">
+      <div className="min-h-screen bg-black text-white">
         <Outlet />
-      </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
