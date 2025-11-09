@@ -9,19 +9,18 @@ const GameDetails = () => {
   const [availableGames, setAvailableGames] = useState([]);
 
   useEffect(() => {
-    // Fetch the JSON from public folder
     fetch("/games.json")
       .then((res) => res.json())
       .then((gamesData) => {
-        const found = gamesData.find((g) => g.id === parseInt(id));
-        if (found) {
-          found.coverPhoto = `/images/${found.coverPhoto}`;
-        }
+        const updatedGames = gamesData.map(game => ({
+          ...game,
+          coverPhoto: game.coverPhoto.startsWith("/images/") ? game.coverPhoto : `/images/${game.coverPhoto}`
+        }));
+
+        const found = updatedGames.find(g => g.id === parseInt(id));
         setSelectedGame(found || null);
 
-        const others = gamesData
-          .filter((g) => g.id !== parseInt(id))
-          .map((g) => ({ ...g, coverPhoto: `/images/${g.coverPhoto}` }));
+        const others = updatedGames.filter(g => g.id !== parseInt(id));
         setAvailableGames(others);
       });
 

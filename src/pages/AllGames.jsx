@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import GameCard from "../components/GameCard.jsx";
-import NotFound from "./NotFound.jsx";
 
 const AllGames = () => {
   const [games, setGames] = useState([]);
@@ -15,10 +14,10 @@ const AllGames = () => {
     fetch("/games.json")
       .then(res => res.json())
       .then(data => {
-        // Update coverPhoto paths
         const updatedData = data.map(game => ({
           ...game,
-          coverPhoto: `/images/${game.coverPhoto}`
+          // ✅ Correct coverPhoto path
+          coverPhoto: game.coverPhoto.startsWith("/images/") ? game.coverPhoto : `/images/${game.coverPhoto}`
         }));
         setGames(updatedData);
       })
@@ -76,7 +75,6 @@ const AllGames = () => {
         Available Games
       </h1>
 
-      {/* Mobile swipe container */}
       <div className="overflow-x-auto md:overflow-x-hidden">
         <div className="flex md:grid md:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-6">
           {availableGames.map(game => (
@@ -84,7 +82,7 @@ const AllGames = () => {
               key={game.id}
               onClick={() => handleSelectGame(game)}
               className="cursor-pointer flex-shrink-0 md:flex-shrink md:transform hover:scale-105 transition-transform duration-300"
-              style={{ minWidth: '250px' }} // mobile swipe width
+              style={{ minWidth: '250px' }}
             >
               <GameCard game={game} />
             </div>
