@@ -10,17 +10,15 @@ const GameDetails = () => {
 
   useEffect(() => {
     fetch("/games.json")
-      .then((res) => res.json())
-      .then((gamesData) => {
-        const updatedGames = gamesData.map(game => ({
-          ...game,
-          coverPhoto: game.coverPhoto.startsWith("/images/") ? game.coverPhoto : `/images/${game.coverPhoto}`
-        }));
-
-        const found = updatedGames.find(g => g.id === parseInt(id));
+      .then(res => res.json())
+      .then(data => {
+        const found = data.find(g => g.id === parseInt(id));
+        if (found) found.coverPhoto = `/images/${found.coverPhoto.replace(/^\/images\//, "")}`;
         setSelectedGame(found || null);
 
-        const others = updatedGames.filter(g => g.id !== parseInt(id));
+        const others = data
+          .filter(g => g.id !== parseInt(id))
+          .map(g => ({ ...g, coverPhoto: `/images/${g.coverPhoto.replace(/^\/images\//, "")}` }));
         setAvailableGames(others);
       });
 
@@ -37,7 +35,6 @@ const GameDetails = () => {
 
   return (
     <div className="container mx-auto px-4 py-6 space-y-6">
-      {/* Selected Game */}
       <div className="flex flex-col md:flex-row gap-6 mb-10">
         <img
           src={selectedGame.coverPhoto}
@@ -60,12 +57,12 @@ const GameDetails = () => {
         </div>
       </div>
 
-      {/* Available Games */}
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-400 mb-6 text-center">
         Available Games
       </h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-        {availableGames.map((game) => (
+        {availableGames.map(game => (
           <div
             key={game.id}
             onClick={() => handleAvailableClick(game)}
