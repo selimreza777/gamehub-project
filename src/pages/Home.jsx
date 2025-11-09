@@ -24,14 +24,17 @@ const Home = () => {
       navigate("/login");
       return;
     }
-    // Navigate to games/:id with smooth scroll
     navigate(`/games/${game.id}`);
   };
 
   return (
     <div className="container mx-auto px-3 py-6 space-y-10">
+
+      {/* Banner */}
       <BannerSlider />
-      <section>
+
+      {/* Popular Games */}
+      <section className="pt-16">
         <h2 className="text-5xl font-bold text-center mb-10">🎮 Popular Games</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {popularGames.map((game) => (
@@ -45,6 +48,32 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <section className="bg-slate-900 rounded-2xl p-10 py-20 text-center text-white space-y-6 mt-16 mb-16">
+        <h2 className="text-4xl font-bold">Subscribe to our Newsletter</h2>
+        <p className="text-gray-300 text-lg">
+          Get exclusive updates, early access to new games & special deals straight to your inbox.
+        </p>
+        <form className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="px-4 py-3 rounded-lg w-full sm:w-80 bg-slate-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+          />
+          <button
+            type="submit"
+            className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p className="text-gray-400 text-sm mt-2">
+          We respect your privacy. No spam, only awesome updates.
+        </p>
+      </section>
+
     </div>
   );
 };

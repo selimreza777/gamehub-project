@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-black via-slate-900 to-black text-white py-6 sm:py-8 relative overflow-hidden">
-      {/* Neon Glowing Background */}
-      <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-700 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-indigo-600 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+    <footer className="relative overflow-hidden bg-gradient-to-r from-black via-slate-900 to-black text-white py-5 sm:py-7 border-t border-slate-800 shadow-[0_-2px_10px_rgba(255,255,255,0.1)]">
+      {/* Soft Neon Glows */}
+      <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-700 rounded-full opacity-15 blur-2xl animate-pulse"></div>
+      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-indigo-600 rounded-full opacity-15 blur-2xl animate-pulse"></div>
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between relative z-10 space-y-5 md:space-y-0">
@@ -31,23 +31,23 @@ const Footer = () => {
           </span>
         </div>
 
-        {/* Middle: Menu */}
-        <div className="flex flex-wrap justify-center gap-5 text-gray-300 text-base font-medium">
-          <Link to="/" className="hover:text-yellow-400 transition-colors">
-            Home
-          </Link>
-          <Link to="/games" className="hover:text-yellow-400 transition-colors">
-            Games
-          </Link>
-          <Link to="/login" className="hover:text-yellow-400 transition-colors">
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="hover:text-yellow-400 transition-colors"
-          >
-            Register
-          </Link>
+        {/* Middle: Menu with Animated Underline */}
+        <div className="flex flex-wrap justify-center gap-6 text-gray-300 text-base font-medium">
+          {[
+            { to: "/", label: "Home" },
+            { to: "/games", label: "Games" },
+            { to: "/login", label: "Login" },
+            { to: "/register", label: "Register" },
+          ].map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className="relative group hover:text-yellow-400 transition-colors duration-300"
+            >
+              {label}
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+          ))}
         </div>
 
         {/* Right: Social Icons */}
@@ -86,7 +86,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-6 border-t border-gray-700 pt-4 text-center z-10 relative">
+      <div className="mt-5 border-t border-gray-800 pt-3 text-center z-10 relative">
         <p className="text-gray-400 text-sm sm:text-base">
           &copy; 2025 Gamehub. All rights reserved.
         </p>
