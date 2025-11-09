@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
 
-  // 🌀 Show loading screen while Firebase checks user state
+  // Wait until auth state is checked
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen bg-black text-yellow-400 text-xl">
@@ -15,12 +15,12 @@ const PrivateRoute = ({ children }) => {
     );
   }
 
-  // 🚫 Redirect if not logged in
+  // Redirect only if user is not logged in
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  // ✅ Allow access
+  // Logged in → allow access
   return children;
 };
 

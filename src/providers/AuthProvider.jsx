@@ -7,6 +7,7 @@ export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // ✅ Add loading state
   const googleProvider = new GoogleAuthProvider();
 
   const googleLogin = () => signInWithPopup(auth, googleProvider);
@@ -23,12 +24,13 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false); // ✅ Set loading to false after checking
     });
     return () => unsubscribe();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, googleLogin, logout, updateUserInfo }}>
+    <AuthContext.Provider value={{ user, loading, googleLogin, logout, updateUserInfo }}>
       {children}
     </AuthContext.Provider>
   );
