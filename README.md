@@ -1,16 +1,62 @@
-# React + Vite
+# 🎮 GameHub - Explore, Play & Enjoy the World of Games
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GameHub** is a modern gaming platform built with **React + Firebase**, designed for gamers to explore trending and popular games, view detailed information, and manage their user profiles through secure authentication.  
 
-Currently, two official plugins are available:
+🚀 Live deploy Netlify: [GameHub Live Site](https://your-live-site-url.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🧩 Project Purpose
+GameHub was created as a responsive web application to provide users with:
+- A visually engaging way to browse games
+- View game details (genre, rating, developer, etc.)
+- Manage their profile and authentication
+- A smooth and responsive user experience across devices
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project demonstrates real-world skills in **React, Firebase Authentication, and responsive design** using **Tailwind CSS**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+✅ **User Authentication**
+- Login & Register using Email/Password  
+- Google Sign-In powered by Firebase  
+- Protected routes for logged-in users only  
+- Update profile name and photo in real-time  
+
+✅ **Dynamic Game Data**
+- View all games from JSON data  
+- Game details with description, rating & download links  
+- “Available Games” section dynamically updates  
+
+✅ **Modern UI/UX**
+- Fully responsive layout for mobile, tablet & desktop  
+- Beautiful banner slider & game cards  
+- Newsletter subscription form  
+- Smooth transitions and hover effects  
+
+✅ **Routing**
+- React Router for dynamic navigation  
+- 404 Not Found page for invalid routes  
+
+---
+
+## 🛠️ Technologies Used
+
+| Category | Technologies |
+|-----------|---------------|
+| **Frontend** | React, React Router DOM |
+| **Styling** | Tailwind CSS |
+| **Authentication** | Firebase Auth |
+| **State Management** | React Hooks & Context API |
+| **Deployment** | Netlify |
+| **JSON Data** | Local `games.json` file for game info |
+
+---
+
+## 📦 NPM Packages Used
+
+```bash
+npm install react react-dom react-router-dom firebase
+npm install -D tailwindcss postcss autoprefixer
