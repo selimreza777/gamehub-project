@@ -33,8 +33,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[80vh] bg-slate-900 text-white">
-      <div className="bg-slate-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <div className="flex justify-center items-center min-h-screen bg-[#0e172b] text-white px-2 sm:px-0">
+      <div className="bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-lg w-full max-w-md">
         <h1 className="text-3xl font-bold text-yellow-400 text-center mb-6">Welcome Back</h1>
 
         <form onSubmit={handleEmailLogin} className="space-y-4">
