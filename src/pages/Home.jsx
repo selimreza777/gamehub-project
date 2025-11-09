@@ -6,7 +6,7 @@ import GameCard from "../components/GameCard.jsx";
 
 // Images
 import pubg from "../assets/pubg.png";
-import witcher from "../assets/witcher-1.png";
+import witcher from "../assets/witcher.png"; // fixed path
 import godofwar from "../assets/godofwar.png";
 
 const Home = () => {

@@ -14,7 +14,14 @@ const AllGames = () => {
   useEffect(() => {
     fetch("/games.json")
       .then(res => res.json())
-      .then(data => setGames(data))
+      .then(data => {
+        // Update coverPhoto paths
+        const updatedData = data.map(game => ({
+          ...game,
+          coverPhoto: `/images/${game.coverPhoto}`
+        }));
+        setGames(updatedData);
+      })
       .catch(err => console.error(err));
   }, []);
 

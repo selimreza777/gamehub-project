@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import flykar from "../assets/flykar.png";
-import kena from "../assets/kena.png";
-import witcher from "../assets/witcher.png";
 
-const images = [flykar, kena, witcher];
+// Images from public folder
+const images = [
+  "/images/flykar.png",
+  "/images/kena.png",
+  "/images/witcher.png"
+];
 
 const BannerSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,8 +30,7 @@ const BannerSlider = () => {
     <div className="relative w-full overflow-hidden">
       {/* Banner Section */}
       <div
-        className={`relative flex justify-center items-center w-full ${isMobile ? "h-[70vh]" : "h-[550px]"
-          } overflow-hidden`}
+        className={`relative flex justify-center items-center w-full ${isMobile ? "h-[70vh]" : "h-[550px]"} overflow-hidden`}
       >
         {images.map((img, index) => {
           let scale = 0.8,

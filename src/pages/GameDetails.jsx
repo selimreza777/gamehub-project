@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import GameCard from "../components/GameCard.jsx";
-import gamesData from "../data/games.json";
 
 const GameDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [selectedGame, setSelectedGame] = useState(null);
+  const [availableGames, setAvailableGames] = useState([]);
 
   useEffect(() => {
-    const found = gamesData.find((g) => g.id === parseInt(id));
-    setSelectedGame(found || null);
+    // Fetch the JSON from public folder
+    fetch("/games.json")
+      .then((res) => res.json())
+      .then((gamesData) => {
+        const found = gamesData.find((g) => g.id === parseInt(id));
+        if (found) {
+          found.coverPhoto = `/images/${found.coverPhoto}`;
+        }
+        setSelectedGame(found || null);
+
+        const others = gamesData
+          .filter((g) => g.id !== parseInt(id))
+          .map((g) => ({ ...g, coverPhoto: `/images/${g.coverPhoto}` }));
+        setAvailableGames(others);
+      });
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
@@ -18,8 +31,6 @@ const GameDetails = () => {
   if (!selectedGame) {
     return <div className="text-center text-white mt-20">Game not found!</div>;
   }
-
-  const availableGames = gamesData.filter((g) => g.id !== selectedGame.id);
 
   const handleAvailableClick = (game) => {
     navigate(`/games/${game.id}`);
