@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 // Images from public folder
 const images = [
-  "/images/flykar.png",
-  "/images/kena.png",
-  "/images/witcher.png"
+  "/images/flykar.webp",
+  "/images/kena.webp",
+  "/images/witcher.webp"
 ];
 
 const BannerSlider = () => {
