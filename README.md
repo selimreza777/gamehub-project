@@ -2,7 +2,7 @@
 
 **GameHub** is a modern gaming platform built with **React + Firebase**, designed for gamers to explore trending and popular games, view detailed information, and manage their user profiles through secure authentication.  
 
-🚀 Live deploy Netlify: [GameHub Live Site](https://your-live-site-url.netlify.app)
+🚀 Live deploy Netlify: [GameHub Live Site](bibriti-game-drive.netlify.app)
 
 ---
 
