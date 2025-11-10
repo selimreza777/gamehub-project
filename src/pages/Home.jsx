@@ -5,9 +5,9 @@ import BannerSlider from "../components/BannerSlider.jsx";
 import GameCard from "../components/GameCard.jsx";
 
 // Images
-import pubg from "../assets/pubg.png";
-import witcher from "../assets/witcher.png"; // fixed path
-import godofwar from "../assets/godofwar.png";
+import pubg from "../assets/pubg.webp";
+import witcher from "../assets/witcher.webp"; // fixed path
+import godofwar from "../assets/godofwar.webp";
 
 const Home = () => {
   const navigate = useNavigate();
