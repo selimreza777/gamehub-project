@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Player Unknowns Battle Ground: PUBG",
-    "coverPhoto": "/images/pubg.png",
+    "coverPhoto": "/images/pubg.webp",
     "genre": "FPS",
     "rating": 4.5,
     "developer": "Krafton",
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "title": "Kena: Spirit Keeper",
-    "coverPhoto": "/images/kena-1.png",
+    "coverPhoto": "/images/kena-1.webp",
     "genre": "Adventure",
     "rating": 4.7,
     "developer": "Ember Labs",
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "title": "The Witcher",
-    "coverPhoto": "/images/witcher-1.png",
+    "coverPhoto": "/images/witcher-1.webp",
     "genre": "Action RPG",
     "rating": 4.9,
     "developer": "CD Projekt Red",
@@ -32,7 +32,7 @@
   {
     "id": 4,
     "title": "Valorant",
-    "coverPhoto": "/images/valorant.png",
+    "coverPhoto": "/images/valorant.webp",
     "genre": "Tactical Shooter",
     "rating": 4.6,
     "developer": "Riot Games",
@@ -42,7 +42,7 @@
   {
     "id": 5,
     "title": "God of War: Ragnarok",
-    "coverPhoto": "/images/godofwar.png",
+    "coverPhoto": "/images/godofwar.webp",
     "genre": "Action Adventure",
     "rating": 4.9,
     "developer": "Santa Monica Studio",
@@ -52,7 +52,7 @@
   {
     "id": 6,
     "title": "Cyberpunk 2077",
-    "coverPhoto": "/images/cyberpunk.png",
+    "coverPhoto": "/images/cyberpunk.webp",
     "genre": "Open World RPG",
     "rating": 4.3,
     "developer": "CD Projekt Red",
@@ -62,7 +62,7 @@
   {
     "id": 7,
     "title": "Minecraft",
-    "coverPhoto": "/images/minecraft.png",
+    "coverPhoto": "/images/minecraft.webp",
     "genre": "Sandbox Survival",
     "rating": 4.8,
     "developer": "Mojang Studios",
@@ -72,7 +72,7 @@
   {
     "id": 8,
     "title": "Assassin’s Creed Valhalla",
-    "coverPhoto": "/images/valhalla.png",
+    "coverPhoto": "/images/valhalla.webp",
     "genre": "Action RPG",
     "rating": 4.4,
     "developer": "Ubisoft",
@@ -82,7 +82,7 @@
   {
     "id": 9,
     "title": "Elden Ring",
-    "coverPhoto": "/images/eldenring.png",
+    "coverPhoto": "/images/eldenring.webp",
     "genre": "Fantasy RPG",
     "rating": 4.9,
     "developer": "FromSoftware",
@@ -92,7 +92,7 @@
   {
     "id": 10,
     "title": "Call of Duty: Warzone",
-    "coverPhoto": "/images/warzone.png",
+    "coverPhoto": "/images/warzone.webp",
     "genre": "Battle Royale",
     "rating": 4.6,
     "developer": "Infinity Ward",
@@ -102,7 +102,7 @@
   {
     "id": 11,
     "title": "FIFA 24",
-    "coverPhoto": "/images/fifa24.png",
+    "coverPhoto": "/images/fifa24.webp",
     "genre": "Sports",
     "rating": 4.5,
     "developer": "EA Sports",
@@ -112,7 +112,7 @@
   {
     "id": 12,
     "title": "Grand Theft Auto V",
-    "coverPhoto": "/images/gta5.png",
+    "coverPhoto": "/images/gta5.webp",
     "genre": "Action Adventure",
     "rating": 4.8,
     "developer": "Rockstar Games",
